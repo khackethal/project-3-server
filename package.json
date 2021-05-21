@@ -1,16 +1,18 @@
 {
-  "name": "pokemon-rest-api",
+  "name": "memorymap-rest-api",
   "version": "1.0.0",
   "description": "A style guide application for SEI",
   "main": "index.js",
   "scripts": {
     "dev": "npx nodemon server.js",
-    "test": "node --experimental-vm-modules --no-warnings  node_modules/.bin/jest -i --verbose --watch"
+    "test": "node --experimental-vm-modules --no-warnings  node_modules/.bin/jest -i --verbose --watch",
+    "seed": "node db/seed.js"
   },
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "mongoose": "^5.12.10"
   },
