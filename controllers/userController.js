@@ -43,7 +43,8 @@ async function login(req, res, next) {
     )
 
     console.log('Successful sign in')
-    res.status(200).json({ message: `Login successful, welcome back ${user.username} !`, token })
+    res.status(200).json({ message: `Login successful, welcome back !`, token })
+    console.log(user)
 
   } catch (e) {
     next(e)
@@ -53,4 +54,5 @@ async function login(req, res, next) {
 
 export default {
   register,
+  login,
 }
