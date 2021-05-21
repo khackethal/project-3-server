@@ -22,6 +22,8 @@ schema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password)
 }
 
+//* Add email conifrmation -  A
+
 // ? password confirmation 
 schema
   .virtual('passwordConfirmation')

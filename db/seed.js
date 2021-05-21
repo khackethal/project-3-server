@@ -2,13 +2,10 @@ import mongoose from 'mongoose'
 import connectToDb from './connectToDb.js'
 
 import User from '../models/user.js'
-import userData from '../db/data/userData'
+import userData from '../db/data/userData.js'
 
 import Memory from '../models/memory.js'
 import memoryData from '../db/data/memoryData.js'
-
-// import Comment from '../models/comment.js'
-// import commentData from '../db/data/commentData.js'
 
 
 async function seedDatabase() {
@@ -33,7 +30,7 @@ async function seedDatabase() {
 
     //seed database with memories
     const memories = await Memory.create(memoryDatawithUsers)
-    console.log(`✨ {memories.length} memories created!`)
+    console.log(`✨ ${memories.length} memories created!`)
 
 
     // ! If we want to seed with a comment- need to amend comment structure
