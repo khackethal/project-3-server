@@ -26,15 +26,11 @@ userSchema.methods.validatePassword = function validatePassword(password) {
 userSchema
   .virtual('passwordConfirmation')
   .set(function setPasswordConfimation(passwordConfirmation) {
-    console.log('Setting password confirmation!')
     this._passwordConfirmation = passwordConfirmation
   })
 
 userSchema
   .pre('validate', function checkPassword(next) {
-    console.log('this._passwordConfirmation: ', this._passwordConfirmation)
-    console.log('this.password: ', this.password)
-    console.log('this: ', this)
     if (this.isModified('password') && (this.password !== this._passwordConfirmation)) {
       this.invalidate('passwordConfirmation', 'should match password')
     }

@@ -1,4 +1,30 @@
-GET http://localhost:4000/api/pokemon
+GET http://localhost:4000/api/memories
 
-###
-GET http://localhost:4000/api/pokemon/1
+
+### USER ROUTES
+
+
+
+### CREATE A NEW USER
+POST http://localhost:4000/api/register
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "email": "user1mail1",
+  "emailConfirmation": "user1mail1",
+  "password": "katpassword333",
+  "passwordConfirmation":"katpassword333"
+}
+
+
+### LOG IN EXISTING USER
+POST http://localhost:4000/api/login
+Content-Type: application/json
+
+{
+  "email": "user1mail1",
+  "password": "katpassword333"
+}
+
+

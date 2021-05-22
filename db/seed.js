@@ -7,9 +7,6 @@ import userData from '../db/data/userData.js'
 import Memory from '../models/memory.js'
 import memoryData from '../db/data/memoryData.js'
 
-// import Comment from '../models/comment.js'
-// import commentData from '../db/data/commentData.js'
-
 async function seedDatabase() {
   try {
     // * connect 
@@ -23,8 +20,6 @@ async function seedDatabase() {
 
     // * seed database with users
     const user = await User.create(userData)
-    console.log('user.password: ', user.password)
-    console.log('user.passwordConfirmation: ', user.passwordConfirmation)
     console.log(`✨ ${user.length} users added! ${user}`)
 
     // * Assign a user's user ID to each memory - same user for ech intial seed or we need to write more logic
@@ -32,7 +27,7 @@ async function seedDatabase() {
       return { ...memory, user: user[1]._id }
     })
 
-    // * seed database with memories
+    //seed database with memories
     const memories = await Memory.create(memoryDataWithUsers)
     console.log(`✨ ${memories.length} memories created!`)
 
