@@ -5,39 +5,43 @@ import mongooseHidden from 'mongoose-hidden'
 
 import bcrypt from 'bcrypt'
 
-const schema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 })
-// ? password encryption
-schema.pre('save', function encrypPassword(next) {
+// * password encryption
+userSchema.pre('save', function encrypPassword(next) {
   if (this.isModified('password')) {
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
   }
   next()
 })
 
-schema.methods.validatePassword = function validatePassword(password) {
+userSchema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password)
 }
 
-// ? password confirmation 
-schema
+// * password confirmation 
+userSchema
   .virtual('passwordConfirmation')
   .set(function setPasswordConfimation(passwordConfirmation) {
+    console.log('Setting password confirmation!')
     this._passwordConfirmation = passwordConfirmation
   })
 
-schema
+userSchema
   .pre('validate', function checkPassword(next) {
+    console.log('this._passwordConfirmation: ', this._passwordConfirmation)
+    console.log('this.password: ', this.password)
+    console.log('this: ', this)
     if (this.isModified('password') && (this.password !== this._passwordConfirmation)) {
       this.invalidate('passwordConfirmation', 'should match password')
     }
     next()
   })
 
-schema.plugin(mongooseHidden({ defaultHidden: { password: true, email: true, _id: true } }))
-schema.plugin(uniqueValidator)
+userSchema.plugin(mongooseHidden({ defaultHidden: { password: true, email: true, _id: true } }))
+userSchema.plugin(uniqueValidator)
 
-export default mongoose.model('User', schema)
+export default mongoose.model('User', userSchema)
