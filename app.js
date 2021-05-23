@@ -6,8 +6,6 @@ import router from './views/router.js'
 
 // * custom middleware imports
 import logger from './middleware/logger.js'
-// import errorHandler from './middleware/errorHandler.js'
-
 import errorHandler from './middleware/errorHandler.js'
 
 const app = express()

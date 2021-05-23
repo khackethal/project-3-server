@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import uniqueValidator from 'mongoose-unique-validator'
 
 // * Embedded comment schema
 const commentSchema = new mongoose.Schema( {
@@ -8,11 +9,11 @@ const commentSchema = new mongoose.Schema( {
 )
 
 const memorySchema = new mongoose.Schema({
-  title: { type: String, required: true },
+  title: { type: String, required: true, unique: true },
   location: { type: String, required: true },
   date: { type: Date, required: true },
   imageUrl: { type: String, required: true },
-  description: { type: String, required: true },
+  description: { type: String, required: true, unique: true },
   tags: [{ type: String, required: true }],
   // coordinates: {
   //   type: [Number],
@@ -23,9 +24,11 @@ const memorySchema = new mongoose.Schema({
   //   }],
   // },
 
-  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  // user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 
-  comments: [commentSchema],
+  // comments: [commentSchema],
 })
+
+memorySchema.plugin(uniqueValidator)
 
 export default mongoose.model('Memory', memorySchema)

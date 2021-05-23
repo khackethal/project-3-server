@@ -8,6 +8,13 @@ const router = Router()
 
 router.route('/memories')
   .get(memoryController.index)
+  .post(memoryController.create)
+
+router.route('/memories/:memoryId')
+  .get(memoryController.show)
+  .put(memoryController.edit)
+  .delete(memoryController.remove)
+
 
 
 

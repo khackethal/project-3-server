@@ -1,7 +1,50 @@
+@memoryId = 60aa67eb93cbbc68ff9fd967
 
 ### MEMORY ROUTES
 
+### Get all memories
 GET http://localhost:4000/api/memories
+
+### Get single memory
+GET http://localhost:4000/api/memories/{{memoryId}}
+
+### Create memory
+POST http://localhost:4000/api/memories
+content-type: application/json
+
+  {
+    "title": "test memory",
+    "location": "London",
+    "date": "2020-05-02",
+    "imageUrl": "https://blog.dys.com/wp-content/uploads/2021/03/One-version-of-the-truth-in-SOP-Our-collective-memory.jpg",
+    "description": "so that's my test memory",
+    "tags": ["stuff", "more stuff"]
+  }
+
+### Edit memory
+PUT http://localhost:4000/api/memories/{{memoryId}}
+content-type: application/json
+
+  {
+    "title": "updated 222222",
+    "location": "new city",
+    "date": "1990-01-01",
+    "imageUrl": "fake URL",
+    "description": "fake memory",
+    "tags": ["fake", "more fake"]
+  }
+
+### Delete memory
+DELETE http://localhost:4000/api/memories/{{memoryId}}
+content-type: application/json
+
+
+
+
+
+
+
+
 
 
 ### USER ROUTES
