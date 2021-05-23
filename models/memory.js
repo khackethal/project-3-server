@@ -1,14 +1,36 @@
 import mongoose from 'mongoose'
-import commentSchema from './comment'
+
+// * Embedded comment schema
+const commentSchema = new mongoose.Schema( {
+  text: { type: String, required: true },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+} , { timestamp: true } 
+)
 
 const memorySchema = new mongoose.Schema({
   title: { type: String, required: true },
+<<<<<<< HEAD
   longitude: { type: Number, required: true },
   latitude: { type: Number, required: true },
   date: { type: String, required: true },
   imageUrl: { type: String, required: true },
   description: { type: String, required: true },
   tags: [{ type: String, required: true }],
+=======
+  location: { type: String, required: true },
+  date: { type: Date, required: true },
+  imageUrl: { type: String, required: true },
+  description: { type: String, required: true },
+  tags: [{ type: String, required: true }],
+  // coordinates: {
+  //   type: [Number],
+  //   required: true,
+  //   validate: [{
+  //     validator: (coordinates) => coordinates.length === 2,
+  //     message: (coordinates) => `Requirement array.length === 2. Current length is ${coordinates.length}`,
+  //   }],
+  // },
+>>>>>>> development
 
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 
@@ -16,4 +38,3 @@ const memorySchema = new mongoose.Schema({
 })
 
 export default mongoose.model('Memory', memorySchema)
-

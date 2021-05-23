@@ -12,3 +12,4 @@ export default function connectToDb() {
 
   return mongoose.connect(dbURL, options)
 }
+
