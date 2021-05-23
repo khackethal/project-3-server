@@ -6,8 +6,8 @@ import { secret } from '../config/environment.js'
 
 async function register(req, res, next) {
   try {
-    const userMail = User.findOne({ email: req.body.email })
-    const userName = User.findOne({ username: req.body.username })
+    const userMail = await User.findOne({ email: req.body.email })
+    const userName = await User.findOne({ username: req.body.username })
   
 
     if (userMail || userName) {
@@ -16,8 +16,8 @@ async function register(req, res, next) {
       const newUser = await User.create(req.body)
       res.status(200).json({ message: `Sign up successful, welcome ${newUser.username} !` })
     }
-  } catch (e) {
-    next(e)
+  } catch (err) {
+    next(err)
   }
 
 }
@@ -46,8 +46,8 @@ async function login(req, res, next) {
     res.status(200).json({ message: `Login successful, welcome back ${user.username}!`, token })
     console.log(user)
 
-  } catch (e) {
-    next(e)
+  } catch (err) {
+    next(err)
   }
 }
 
