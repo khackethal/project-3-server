@@ -9,14 +9,6 @@ const commentSchema = new mongoose.Schema( {
 
 const memorySchema = new mongoose.Schema({
   title: { type: String, required: true },
-<<<<<<< HEAD
-  longitude: { type: Number, required: true },
-  latitude: { type: Number, required: true },
-  date: { type: String, required: true },
-  imageUrl: { type: String, required: true },
-  description: { type: String, required: true },
-  tags: [{ type: String, required: true }],
-=======
   location: { type: String, required: true },
   date: { type: Date, required: true },
   imageUrl: { type: String, required: true },
@@ -30,7 +22,6 @@ const memorySchema = new mongoose.Schema({
   //     message: (coordinates) => `Requirement array.length === 2. Current length is ${coordinates.length}`,
   //   }],
   // },
->>>>>>> development
 
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 

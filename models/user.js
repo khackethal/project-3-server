@@ -10,13 +10,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 })
-<<<<<<< HEAD
-// ? password encryption
-schema.pre('save', function encryptPassword(next) {
-=======
 // * password encryption
 userSchema.pre('save', function encrypPassword(next) {
->>>>>>> development
   if (this.isModified('password')) {
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
   }
@@ -28,11 +23,7 @@ userSchema.methods.validatePassword = function validatePassword(password) {
 }
 
 // * password confirmation 
-<<<<<<< HEAD
-schema
-=======
 userSchema
->>>>>>> development
   .virtual('passwordConfirmation')
   .set(function setPasswordConfimation(passwordConfirmation) {
     this._passwordConfirmation = passwordConfirmation
@@ -46,39 +37,7 @@ userSchema
     next()
   })
 
-<<<<<<< HEAD
-
-schema.pre('save', function encryptEmail(next) {
-  if (this.isModified('email')) {
-    this.email = bcrypt.hashSync(this.email, bcrypt.genSaltSync())
-  }
-  next()
-})
-
-schema.methods.validateEmail = function validateEmail(email) {
-  return bcrypt.compareSync(email, this.email)
-}
-
-// * email confirmation 
-schema
-  .virtual('emailConfirmation')
-  .set(function setEmailConfimation(emailConfirmation) {
-    this._emailConfirmation = emailConfirmation
-  })
-
-schema
-  .pre('validate', function checkEmail(next) {
-    if (this.isModified('email') && (this.email !== this._emailConfirmation)) {
-      this.invalidate('emailConfirmation', 'should match email')
-    }
-    next()
-  })
-
-schema.plugin(mongooseHidden({ defaultHidden: { password: true, email: true, _id: true } }))
-schema.plugin(uniqueValidator)
-=======
 userSchema.plugin(mongooseHidden({ defaultHidden: { password: true, email: true, _id: true } }))
 userSchema.plugin(uniqueValidator)
->>>>>>> development
 
 export default mongoose.model('User', userSchema)
