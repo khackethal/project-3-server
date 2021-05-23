@@ -1,3 +1,6 @@
+
+### MEMORY ROUTES
+
 GET http://localhost:4000/api/memories
 
 
@@ -10,11 +13,11 @@ POST http://localhost:4000/api/register
 Content-Type: application/json
 
 {
-  "username": "user1",
-  "email": "user1mail1",
-  "emailConfirmation": "user1mail1",
-  "password": "katpassword333",
-  "passwordConfirmation":"katpassword333"
+  "username": "222",
+  "email": "2",
+  "emailConfirmation": "2",
+  "password": "2",
+  "passwordConfirmation":"2"
 }
 
 
@@ -23,8 +26,8 @@ POST http://localhost:4000/api/login
 Content-Type: application/json
 
 {
-  "email": "user1mail1",
-  "password": "katpassword333"
+  "email": "kat1",
+  "password": "kat1mail"
 }
 
 

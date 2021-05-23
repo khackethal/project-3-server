@@ -1,5 +1,11 @@
 export default [
   {
+    username: 'ant',
+    email: 'ant@ok.com',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+  },
+  {
     username: 'Londonfan',
     email: 'londonfan88@gmail.com',
     emailConfirmation: 'londonfan88@gmail.com',
@@ -20,6 +26,5 @@ export default [
     emailConfirmation: 'Jack18885@hotmail.com',
     password: 'erjb7jalihbin3&&2',
     passwordConfirmation: 'erjb7jalihbin3&&2',
-  
   }
 ]
