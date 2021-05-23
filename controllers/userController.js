@@ -16,8 +16,8 @@ async function register(req, res, next) {
       const newUser = await User.create(req.body)
       res.status(200).json({ message: `Sign up successful, welcome ${newUser.username} !` })
     }
-  } catch (e) {
-    next(e)
+  } catch (err) {
+    next(err)
   }
 
 }
@@ -46,8 +46,8 @@ async function login(req, res, next) {
     res.status(200).json({ message: `Login successful, welcome back ${user.username}!`, token })
     console.log(user)
 
-  } catch (e) {
-    next(e)
+  } catch (err) {
+    next(err)
   }
 }
 
