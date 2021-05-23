@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import commentController from '../controllers/commentController.js'
 
 // * controller imports
 import memoryController from '../controllers/memoryController.js'
@@ -16,8 +17,12 @@ router.route('/memories')
 
 // ! TO FILL IN - COMMENT ROUTES
 
+router.route('/memory/:id/comment')
+  .post(commentController.create)
 
-
+router.route('/pokemon/pokemonId/comment/:commentId')
+  .put(commentController.update)
+  .delete(commentController.remove)
 
 //* USER ROUTES
 

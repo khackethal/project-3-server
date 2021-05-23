@@ -26,8 +26,26 @@ POST http://localhost:4000/api/login
 Content-Type: application/json
 
 {
-  "email": "kat1",
-  "password": "kat1mail"
+  "email": "2",
+  "password": "2"
+}
+
+### Post comment
+
+POST http://localhost:4000/api/memory/:id/comment
+content-type: application/json
+Authorization: Bearer 
+{
+  "text": "Comment."
 }
 
 
+### edit comment
+
+PUT http://localhost:4000/api/memory/:id/comment/:id
+content-type: application/json
+Authorization: Bearer 
+
+{
+  "text": "Second edit comment."
+}
