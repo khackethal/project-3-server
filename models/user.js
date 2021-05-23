@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
   password: { type: String, required: true },
 })
 // ? password encryption
-schema.pre('save', function encrypPassword(next) {
+schema.pre('save', function encryptPassword(next) {
   if (this.isModified('password')) {
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
   }
@@ -22,7 +22,7 @@ schema.methods.validatePassword = function validatePassword(password) {
   return bcrypt.compareSync(password, this.password)
 }
 
-// ? password confirmation 
+// * password confirmation 
 schema
   .virtual('passwordConfirmation')
   .set(function setPasswordConfimation(passwordConfirmation) {
@@ -33,6 +33,33 @@ schema
   .pre('validate', function checkPassword(next) {
     if (this.isModified('password') && (this.password !== this._passwordConfirmation)) {
       this.invalidate('passwordConfirmation', 'should match password')
+    }
+    next()
+  })
+
+
+schema.pre('save', function encryptEmail(next) {
+  if (this.isModified('email')) {
+    this.email = bcrypt.hashSync(this.email, bcrypt.genSaltSync())
+  }
+  next()
+})
+
+schema.methods.validateEmail = function validateEmail(email) {
+  return bcrypt.compareSync(email, this.email)
+}
+
+// * email confirmation 
+schema
+  .virtual('emailConfirmation')
+  .set(function setEmailConfimation(emailConfirmation) {
+    this._emailConfirmation = emailConfirmation
+  })
+
+schema
+  .pre('validate', function checkEmail(next) {
+    if (this.isModified('email') && (this.email !== this._emailConfirmation)) {
+      this.invalidate('emailConfirmation', 'should match email')
     }
     next()
   })
