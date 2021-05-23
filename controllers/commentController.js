@@ -8,6 +8,7 @@ async function create(req, res, next) {
       .populate('user')
       .populate('comments.user')
     if (!memories) {
+      //* the not found already has a message in error handler that will overwrite the below
       throw new NotFound('No memories found.')
     }
     memories.comments.push(req.body)
@@ -24,6 +25,7 @@ async function update(req, res, next) {
     const { memoryId, commentId } = req.params
     const memories = await Memory.findById(memoryId)
     if (!memories) {
+      //* same
       throw new NotFound('No pokemon found.')
     }
     const comment = memories.comments.id(commentId)
@@ -44,6 +46,7 @@ async function remove(req, res, next) {
     const { memoryId, commentId } = req.params
     const memories = await Memory.findById(memoryId)
     if (!memories) {
+      // * same
       throw new NotFound('No pokemon found.')
     }
     const comment = memories.comments.id(commentId)

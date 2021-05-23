@@ -6,8 +6,8 @@ import { secret } from '../config/environment.js'
 
 async function register(req, res, next) {
   try {
-    const userMail = User.findOne({ email: req.body.email })
-    const userName = User.findOne({ username: req.body.username })
+    const userMail = await User.findOne({ email: req.body.email })
+    const userName = await User.findOne({ username: req.body.username })
   
 
     if (userMail || userName) {
