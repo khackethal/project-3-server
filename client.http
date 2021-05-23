@@ -13,9 +13,9 @@ POST http://localhost:4000/api/register
 Content-Type: application/json
 
 {
-  "username": "222",
-  "email": "2",
-  "emailConfirmation": "2",
+  "username": "user233",
+  "email": "user2mail3",
+  "emailConfirmation": "user2mail3",
   "password": "2",
   "passwordConfirmation":"2"
 }
@@ -26,17 +26,8 @@ POST http://localhost:4000/api/login
 Content-Type: application/json
 
 {
-  "email": "2",
+  "email": "user2mail3",
   "password": "2"
-}
-
-### Post comment
-
-POST http://localhost:4000/api/memory/:id/comment
-content-type: application/json
-Authorization: Bearer 
-{
-  "text": "Comment."
 }
 
 

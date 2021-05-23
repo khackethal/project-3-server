@@ -5,14 +5,17 @@ import commentController from '../controllers/commentController.js'
 import memoryController from '../controllers/memoryController.js'
 import userController from '../controllers/userController.js'
 
+//*secure route
+// import secureRoute from '../middleware/secureRoute.js'
+
 const router = Router()
+
+// ! TO FILL IN - MEMORY ROUTES 
 
 router.route('/memories')
   .get(memoryController.index)
 
 
-
-// ! TO FILL IN - MEMORY ROUTES 
 
 
 // ! TO FILL IN - COMMENT ROUTES
