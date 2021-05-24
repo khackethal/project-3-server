@@ -16,7 +16,9 @@ router.route('/memories')
   .get(memoryController.index)
   .post(secureRoute, memoryController.create)
 
-router.route('/memories/:memoryId')
+
+
+router.route('/memories/:id')
   .get(memoryController.show)
   .put(secureRoute, memoryController.edit)
   .delete(secureRoute, memoryController.remove)
@@ -25,14 +27,15 @@ router.route('/memories/:memoryId')
 
 
 
-// ! TO FILL IN - COMMENT ROUTES
+// * MEMORY ROUTES
 
-router.route('/memory/:id/comment')
+router.route('/memories/:id/comment')
   .post(secureRoute, commentController.create)
 
-router.route('/memory/:id/comment/:commentId')
+router.route('/memories/:id/comment/:commentId')
   .put(secureRoute, commentController.update)
   .delete(secureRoute, commentController.remove)
+
 
 //* USER ROUTES
 
