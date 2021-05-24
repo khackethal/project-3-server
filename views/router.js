@@ -6,7 +6,7 @@ import memoryController from '../controllers/memoryController.js'
 import userController from '../controllers/userController.js'
 
 //*secure route
-// import secureRoute from '../middleware/secureRoute.js'
+import secureRoute from '../middleware/secureRoute.js'
 
 const router = Router()
 
@@ -14,6 +14,13 @@ const router = Router()
 
 router.route('/memories')
   .get(memoryController.index)
+  .post(secureRoute, memoryController.create)
+
+router.route('/memories/:memoryId')
+  .get(memoryController.show)
+  .put(secureRoute, memoryController.edit)
+  .delete(secureRoute, memoryController.remove)
+
 
 
 
