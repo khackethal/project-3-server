@@ -3,12 +3,11 @@ import { NotUnique, NotValid } from '../lib/errors.js'
 import jwt from 'jsonwebtoken'
 import { secret } from '../config/environment.js'
 
-
 async function register(req, res, next) {
   try {
+    console.log('req.body: ', req.body)
     const userMail = await User.findOne({ email: req.body.email })
     const userName = await User.findOne({ username: req.body.username })
-  
 
     if (userMail || userName) {
       throw new NotUnique
@@ -19,7 +18,6 @@ async function register(req, res, next) {
   } catch (err) {
     next(err)
   }
- 
 }
 
 async function login(req, res, next) {

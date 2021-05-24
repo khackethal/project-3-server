@@ -16,9 +16,7 @@ router.route('/memories')
   .get(memoryController.index)
   .post(secureRoute, memoryController.create)
 
-
-
-router.route('/memories/:id')
+router.route('/memories/:memoryId')
   .get(memoryController.show)
   .put(secureRoute, memoryController.edit)
   .delete(secureRoute, memoryController.remove)
