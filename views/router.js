@@ -6,14 +6,14 @@ import memoryController from '../controllers/memoryController.js'
 import userController from '../controllers/userController.js'
 
 //*secure route
-// import secureRoute from '../middleware/secureRoute.js'
+import secureRoute from '../middleware/secureRoute.js'
 
 const router = Router()
 
 // ! TO FILL IN - MEMORY ROUTES 
 
 router.route('/memories')
-  .get(memoryController.index)
+  .get(secureRoute, memoryController.index)
 
 
 
@@ -21,11 +21,11 @@ router.route('/memories')
 // ! TO FILL IN - COMMENT ROUTES
 
 router.route('/memory/:id/comment')
-  .post(commentController.create)
+  .post(secureRoute, commentController.create)
 
 router.route('/pokemon/pokemonId/comment/:commentId')
-  .put(commentController.update)
-  .delete(commentController.remove)
+  .put(secureRoute, commentController.update)
+  .delete(secureRoute, commentController.remove)
 
 //* USER ROUTES
 
