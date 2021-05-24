@@ -38,6 +38,9 @@ export default function errorHandler(err, req, res, next) {
     return res.status(400).json({ message: 'Email and email confirmation do not match, please double check your input.' })
   }
 
+  if (err.name === 'NotLogged') {
+    return res.status(400).json({ message: 'Unable to create memory, you need to be logged in.' })
+  }
 
   // Code 500 means internal server error
   res.sendStatus(500)
