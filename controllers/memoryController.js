@@ -1,6 +1,5 @@
 import { NotFound } from '../lib/errors.js'
 import Memory from '../models/memory.js'
-import user from '../models/user.js'
 
 // * Find all memeories in DB
 async function index(req, res, next) {
