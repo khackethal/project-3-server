@@ -19,7 +19,7 @@ async function register(req, res, next) {
   } catch (err) {
     next(err)
   }
-
+ 
 }
 
 async function login(req, res, next) {
