@@ -30,7 +30,7 @@ router.route('/memories/:memoryId')
 router.route('/memory/:id/comment')
   .post(secureRoute, commentController.create)
 
-router.route('/pokemon/pokemonId/comment/:commentId')
+router.route('/memory/:id/comment/:commentId')
   .put(secureRoute, commentController.update)
   .delete(secureRoute, commentController.remove)
 

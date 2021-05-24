@@ -1,6 +1,8 @@
 @memoryId = 60aac7a4e70d19e36119d471
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFhYjdhNmQxZGZjZmNhZWQ1YTM4MTkiLCJpYXQiOjE2MjE4NDQ0NzgsImV4cCI6MTYyMTg4NzY3OH0.3BaN4_c7rBiNaJL2YrMTAAezwcGZnJL_ipVwjWYceN4
 
+@commentId =
+
 ### MEMORY ROUTES
 
 ### Get all memories
@@ -96,7 +98,7 @@ Content-Type: application/json
 #     ]
 # }
 
- ### new comment
+### new comment
 
 POST http://localhost:4000/api/memory/{{memoryId}}/comment
 content-type: application/json
