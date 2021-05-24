@@ -9,9 +9,10 @@ GET http://localhost:4000/api/memories
 ### Get single memory
 GET http://localhost:4000/api/memories/60aa833f32789a73f7720e05
 
+
 ### Create memory
 POST http://localhost:4000/api/memories
-Authorization: Bearer {{token}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
   {
@@ -24,8 +25,8 @@ content-type: application/json
   }
 
 ### Edit memory
-PUT http://localhost:4000/api/memories/{{memoryId}}
-Authorization: Bearer {{token}}
+PUT http://localhost:4000/api/memories/60ab8482526419a4b01bc478
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
   {
@@ -37,32 +38,55 @@ content-type: application/json
     "tags": ["fake", "more fake"]
   }
 
+
 ### Delete memory
-DELETE http://localhost:4000/api/memories/{{memoryId}}
-Authorization: Bearer {{token}}
+DELETE http://localhost:4000/api/memories/60ab82fbde6b92a457e29800
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
+content-type: application/json
+
+
+### COMMENT ROUTES
+
+## POST A COMMENT ON A MEMORY
+POST http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
+content-type: application/json
+
+{
+  "text": "TEST"
+
+}
+
+### EDIT A COMMENT
+
+PUT http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment/60ab8c96cc6296a6be175b62
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
+content-type: application/json
+
+{
+  "text": "TEST EDIT"
+
+}
+
+
+### DELETE A COMMENT
+
+DELETE http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment/60ab8c96cc6296a6be175b62
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
 
 
-
-
-
-
-
-
-
 ### USER ROUTES
-
-
 
 ### CREATE A NEW USER
 POST http://localhost:4000/api/register
 Content-Type: application/json
 
 {
-  "username": "user233",
-  "email": "user2mail3",
-  "emailConfirmation": "user2mail3",
+  "username": "user4",
+  "email": "user2mail34",
+  "emailConfirmation": "user2mail34",
   "password": "2",
   "passwordConfirmation":"2"
 }
@@ -73,8 +97,8 @@ POST http://localhost:4000/api/login
 Content-Type: application/json
 
 {
-  "email": "anonymous@memorymapapp.com",
-  "password": "somethingsillybutlongenough"
+  "email": "user2mail34",
+  "password": "2"
 }
 
 
