@@ -13,7 +13,14 @@ const router = Router()
 // ! TO FILL IN - MEMORY ROUTES 
 
 router.route('/memories')
-  .get(secureRoute, memoryController.index)
+  .get(memoryController.index)
+  .post(secureRoute, memoryController.create)
+
+router.route('/memories/:memoryId')
+  .get(memoryController.show)
+  .put(secureRoute, memoryController.edit)
+  .delete(secureRoute, memoryController.remove)
+
 
 
 
