@@ -16,11 +16,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiO
 content-type: application/json
 
 {
-  "title": "test memory 11",
-  "location": "London",
-  "date": "2020-05-02",
+  "title": "test memory 211",
+  "location": "London2",
+  "date": "2020-05-022",
   "imageUrl": "https://blog.dys.com/wp-content/uploads/2021/03/One-version-of-the-truth-in-SOP-Our-collective-memory.jpg",
-  "description": "so that's my test memory 11",
+  "description": "2so that's my test memory 11",
   "tags": ["stuff", "more stuff"]
 }
 
@@ -48,7 +48,7 @@ content-type: application/json
 ### COMMENT ROUTES
 
 ## POST A COMMENT ON A MEMORY
-POST http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment
+POST http://localhost:4000/api/memories/60aa833f32789a73f7720e05/comment
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
@@ -59,7 +59,7 @@ content-type: application/json
 
 ### EDIT A COMMENT
 
-PUT http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment/60ab8c96cc6296a6be175b62
+PUT http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment/60ab8a2eccf064a619c7d264
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
@@ -71,7 +71,7 @@ content-type: application/json
 
 ### DELETE A COMMENT
 
-DELETE http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment/60ab8c96cc6296a6be175b62
+DELETE http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment/60ab8b24426f2da659fc58a2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
