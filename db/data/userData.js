@@ -1,5 +1,11 @@
 export default [
   {
+    username: 'Anonymous',
+    email: 'anonymous@memorymapapp.com',
+    password: 'somethingsillybutlongenough',
+    passwordConfirmation: 'somethingsillybutlongenough',
+  },
+  {
     username: 'ant',
     email: 'ant@ok.com',
     password: 'pass',

@@ -16,7 +16,6 @@ export default function secureRoute( req, res, next) {
 
   //* remove 'Bearer'
   const token = rawToken.replace('Bearer ', '')
-  console.log(token)
 
   //* 2) Verify token
   jwt.verify(token, secret, async (err, payload) => {
@@ -30,6 +29,7 @@ export default function secureRoute( req, res, next) {
     if (!user) {
       return res.status(401).json({ message: 'Unauthorized' })
     }
+
     // ? Add the user to our request
     req.currentUser = user
 

@@ -1,6 +1,6 @@
 import { NotFound } from '../lib/errors.js'
 import Memory from '../models/memory.js'
-import mongoose from 'mongoose'
+import user from '../models/user.js'
 
 // * Find all memeories in DB
 async function index(req, res, next) {
@@ -14,7 +14,7 @@ async function index(req, res, next) {
   }
 }
 
-// * Find one memory in DB
+// * Find a single memory, by ID
 async function show(req, res, next) {
   try {
 
@@ -32,50 +32,86 @@ async function show(req, res, next) {
   }
 }
 
+// * Create a memory
 async function create(req, res, next) {
   try {
-    const newMemory = await Memory.create(req.body)
-    console.log('newMemory: ', newMemory)
 
-    res.status(201).json('New memory created')
+    // * conditional to save users as currentUser or Anonymous if no user logged
+    if (!req.currentUser) {
+      const anonymousUser = await user.findOne({ username: 'Anonymous' })
+      req.body.user = anonymousUser._id
+    } else {
+      req.body.user = req.currentUser
+    }
+
+    // * create memory
+    const newMemory = await Memory.create(req.body)
+
+    res.status(201).json(newMemory)
 
   } catch (err) {
+
+    // * error message if memory already exists
+    if (err.errors.title.properties.type === 'unique') {
+      return res.status(400).json({ message: 'Memory already exists. Unable to create memory.' })
+    }
+
     next(err)
   }
 }
 
+// * Edit a memory
 async function edit(req, res, next) {
   try {
 
-    // * to get mongoose to use the global option 'useFindAndModify' instead of 'findAndModify' function (which seems to be deprecated)
-    mongoose.set('useFindAndModify', false)
+    const id = req.params.memoryId
+    const memory = await Memory.findById(id)
 
-    const id = mongoose.Types.ObjectId(req.params.memoryId)
-    const editedMemory = await Memory.findOneAndUpdate( { _id: id } , req.body)
+    const currentUserId = req.currentUser._id
+    const memoryUserId = memory.user
 
-    if (!editedMemory) {
+    if (!currentUserId.equals(memoryUserId)) {
+      return res.status(401).json({ message: 'Unauthorized' })
+    }
+
+    if (!memory) {
       throw new NotFound()
     }
 
-    res.status(202).json(editedMemory)
+    await memory.updateOne(req.body)
+    const updatedMemory = await Memory.findById(id)
+    res.status(202).json(updatedMemory)
     
   } catch (err) {
+
+    // * error message if memory already exists
+    if (err.code === 11000) {
+      return res.status(400).json({ message: 'Memory already exists. Unable to create memory.' })
+    }
+
     next(err)
   }
 }
 
+// * Remove a memory
 async function remove(req, res, next) {
   try {
 
     const id = req.params.memoryId
-    const memoryToDelete = await Memory.findById(id)
-    console.log('memoryToDelete: ', memoryToDelete)
+    const memory = await Memory.findById(id)
 
-    if (!memoryToDelete) {
+    if (!memory) {
       throw new NotFound()
     }
 
-    await memoryToDelete.deleteOne()
+    const memoryUserId = memory.user
+    const currentUserId = req.currentUser._id
+
+    if (!currentUserId.equals(memoryUserId)) {
+      return res.status(401).json({ message: 'Unauthorized' })
+    }
+
+    await memory.deleteOne()
 
     res.sendStatus(204)
     

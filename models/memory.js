@@ -24,9 +24,9 @@ const memorySchema = new mongoose.Schema({
   //   }],
   // },
 
-  // user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 
-  // comments: [commentSchema],
+  comments: [commentSchema],
 })
 
 memorySchema.plugin(uniqueValidator)
