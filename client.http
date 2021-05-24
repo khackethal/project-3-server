@@ -51,7 +51,6 @@ content-type: application/json
 
 
 
-
 ### USER ROUTES
 
 
@@ -80,37 +79,37 @@ Content-Type: application/json
 
 
 
-### post memory
+# ### post memory
 
-POST http://localhost:4000/api/memory
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFhOGE5MGIzYTE2OGUxNzJiYzY3ZWQiLCJpYXQiOjE2MjE3OTA3OTUsImV4cCI6MTYyMTgzMzk5NX0.6-5kByA_uC_vRn3IBCuiwJVKtXE35QsqdMfFhMWFouI
+# POST http://localhost:4000/api/memory
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFhOGE5MGIzYTE2OGUxNzJiYzY3ZWQiLCJpYXQiOjE2MjE3OTA3OTUsImV4cCI6MTYyMTgzMzk5NX0.6-5kByA_uC_vRn3IBCuiwJVKtXE35QsqdMfFhMWFouI
 
-Content-Type: application/json
-{
-  "title": "Reese's first bicycle ride",
-  "location": "51.882004, 2.628533",
-  "date": "23.06.1993",
-  "imageUrl": "https://www.stickybottle.com/wp-content/uploads/2014/08/CD1.jpg",
-  "description": " Reese can cycle without wheelies!",
-  "tags": [
-    "wheelies", "whales", "Channel", "goodtimes"
-    ]
-}
+# Content-Type: application/json
+# {
+#   "title": "Reese's first bicycle ride",
+#   "location": "51.882004, 2.628533",
+#   "date": "23.06.1993",
+#   "imageUrl": "https://www.stickybottle.com/wp-content/uploads/2014/08/CD1.jpg",
+#   "description": " Reese can cycle without wheelies!",
+#   "tags": [
+#     "wheelies", "whales", "Channel", "goodtimes"
+#     ]
+# }
 
  ### new comment
 
-POST http://localhost:4000/api/memory/:id/comment
+POST http://localhost:4000/api/memory/{{memoryId}}/comment
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFhOGE5MGIzYTE2OGUxNzJiYzY3ZWQiLCJpYXQiOjE2MjE3OTAwMTEsImV4cCI6MTYyMTgzMzIxMX0.DDab379y68xj2YmResSbBBtosf-ZH2ikHVUtiAi13Mk
+Authorization: Bearer {{token}}
 {
   "text": "New comment."
 }
 ### edit comment
 
-PUT http://localhost:4000/api/memory/:id/comment/:id
-content-type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFhOGE5MGIzYTE2OGUxNzJiYzY3ZWQiLCJpYXQiOjE2MjE3OTAwMTEsImV4cCI6MTYyMTgzMzIxMX0.DDab379y68xj2YmResSbBBtosf-ZH2ikHVUtiAi13Mk
+PUT http://localhost:4000/api/memory/{{memoryId}}/comment/{{commentId}}
 
+content-type: application/json
+Authorization: Bearer {{token}}
 
 
 {
