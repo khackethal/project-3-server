@@ -36,13 +36,7 @@ async function show(req, res, next) {
 async function create(req, res, next) {
   try {
 
-    // * conditional to save users as currentUser or Anonymous if no user logged
-    if (!req.currentUser) {
-      const anonymousUser = await user.findOne({ username: 'Anonymous' })
-      req.body.user = anonymousUser._id
-    } else {
-      req.body.user = req.currentUser
-    }
+    req.body.user = req.currentUser
 
     // * create memory
     const newMemory = await Memory.create(req.body)
@@ -84,6 +78,7 @@ async function edit(req, res, next) {
     
   } catch (err) {
 
+    console.log('err: ', err)
     // * error message if memory already exists
     if (err.code === 11000) {
       return res.status(400).json({ message: 'Memory already exists. Unable to create memory.' })

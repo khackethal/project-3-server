@@ -1,4 +1,4 @@
-@memoryId = 60aac7a4e70d19e36119d471
+@memoryId = 60aac7ec556af4e3c526e641
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFhYjdhNmQxZGZjZmNhZWQ1YTM4MTkiLCJpYXQiOjE2MjE4NDQ0NzgsImV4cCI6MTYyMTg4NzY3OH0.3BaN4_c7rBiNaJL2YrMTAAezwcGZnJL_ipVwjWYceN4
 
 ### MEMORY ROUTES
@@ -14,28 +14,28 @@ POST http://localhost:4000/api/memories
 Authorization: Bearer {{token}}
 content-type: application/json
 
-  {
-    "title": "test memory 10",
-    "location": "London",
-    "date": "2020-05-02",
-    "imageUrl": "https://blog.dys.com/wp-content/uploads/2021/03/One-version-of-the-truth-in-SOP-Our-collective-memory.jpg",
-    "description": "so that's my test memory 10",
-    "tags": ["stuff", "more stuff"]
-  }
+{
+  "title": "test memory 11",
+  "location": "London",
+  "date": "2020-05-02",
+  "imageUrl": "https://blog.dys.com/wp-content/uploads/2021/03/One-version-of-the-truth-in-SOP-Our-collective-memory.jpg",
+  "description": "so that's my test memory 11",
+  "tags": ["stuff", "more stuff"]
+}
 
 ### Edit memory
 PUT http://localhost:4000/api/memories/{{memoryId}}
 Authorization: Bearer {{token}}
 content-type: application/json
 
-  {
-    "title": "that day y'know?",
-    "location": "new cit",
-    "date": "1990-01-01",
-    "imageUrl": "fake UR",
-    "description": "fake memory 23",
-    "tags": ["fake", "more fake"]
-  }
+{
+  "title": "that day y'know?",
+  "location": "new cit",
+  "date": "1990-01-01",
+  "imageUrl": "fake UR",
+  "description": "fake memory 23",
+  "tags": ["fake", "more fake"]
+}
 
 ### Delete memory
 DELETE http://localhost:4000/api/memories/{{memoryId}}
