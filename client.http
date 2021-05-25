@@ -100,6 +100,14 @@ Content-Type: application/json
   "password": "2"
 }
 
+### Check user
+POST http://localhost:4000/api/register/checkpass
+Content-Type: application/json
+
+{
+  "password": "pass",
+  "passwordConfirmation" : "pass"
+}
 
 
 

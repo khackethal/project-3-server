@@ -34,6 +34,9 @@ router.route('/memories/:memoryId/comment/:commentId')
 router.route('/register')
   .post(userController.register)
 
+router.route('/register/checkuser')
+  .post(userController.checkUnique)
+
 router.route('/login')
   .post(userController.login)
 
