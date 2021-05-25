@@ -15,6 +15,8 @@ const memorySchema = new mongoose.Schema({
   imageUrl: { type: String, required: true },
   description: { type: String, required: true, unique: true },
   tags: [{ type: String, required: true }],
+  latitude: [{ type: Number }],
+  longitude: [{ type: Number }],
   // coordinates: {
   //   type: [Number],
   //   required: true,
