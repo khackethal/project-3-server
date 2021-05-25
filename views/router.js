@@ -10,7 +10,7 @@ import secureRoute from '../middleware/secureRoute.js'
 
 const router = Router()
 
-// ! TO FILL IN - MEMORY ROUTES 
+// * MEMORY ROUTES
 
 router.route('/memories')
   .get(memoryController.index)
@@ -21,16 +21,10 @@ router.route('/memories/:memoryId')
   .put(secureRoute, memoryController.edit)
   .delete(secureRoute, memoryController.remove)
 
-
-
-
-
-// * MEMORY ROUTES
-
-router.route('/memories/:id/comment')
+router.route('/memories/:memoryId/comment')
   .post(secureRoute, commentController.create)
 
-router.route('/memories/:id/comment/:commentId')
+router.route('/memories/:memoryId/comment/:commentId')
   .put(secureRoute, commentController.update)
   .delete(secureRoute, commentController.remove)
 

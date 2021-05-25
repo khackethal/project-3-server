@@ -24,10 +24,10 @@ async function create(req, res, next) {
 }
 
 async function update(req, res, next) {
-  const { id, commentId } = req.params
+  const { memoryId, commentId } = req.params
   try {
 
-    const memories = await Memory.findById(id)
+    const memories = await Memory.findById(memoryId)
 
     if (!memories) {
       throw new NotFound
@@ -49,9 +49,9 @@ async function update(req, res, next) {
 }
 
 async function remove(req, res, next) {
-  const { id, commentId } = req.params
+  const { memoryId, commentId } = req.params
   try {
-    const memories = await Memory.findById(id)
+    const memories = await Memory.findById(memoryId)
     if (!memories) {
       throw new NotFound
     }

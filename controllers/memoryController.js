@@ -15,6 +15,7 @@ async function index(req, res, next) {
 
 // * Find a single memory, by ID
 async function show(req, res, next) {
+
   try {
 
     const id = req.params.memoryId
