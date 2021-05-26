@@ -84,8 +84,8 @@ POST http://localhost:4000/api/register
 Content-Type: application/json
 
 {
-  "username": "yep",
-  "email": "yep@ok",
+  "username": "yep55",
+  "email": "yep55@ok",
   "password": "pass",
   "passwordConfirmation": "pass"
 }
@@ -96,17 +96,16 @@ POST http://localhost:4000/api/login
 Content-Type: application/json
 
 {
-  "email": "user2mail34",
-  "password": "2"
+  "email": "yep55@ok",
+  "password": "pass"
 }
 
 ### Check user
-POST http://localhost:4000/api/register/checkpass
+POST http://localhost:4000/api/register/checkuser
 Content-Type: application/json
 
 {
-  "password": "pass",
-  "passwordConfirmation" : "pass"
+  "email": "yep@o"
 }
 
 

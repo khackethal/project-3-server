@@ -1,12 +1,9 @@
 export default function errorHandler(err, req, res, next) {
 
   console.log('There was an error')
+  console.log(err.name)
   console.log(err)
 
-  if (err.customError.errName === 'NotValidRegistration') {
-    return res.status(400).json(err.customError)
-  }
-  
   // specific error handling 
   if (err.name === 'CastError') {
     return res.status(400).json( {
@@ -25,11 +22,12 @@ export default function errorHandler(err, req, res, next) {
 
   // * when credentials aren't unique at registration
   if (err.name === 'NotUnique') {
+    console.log('in correct error')
     return res.status(400).json({
       errName: err.name,
       errMessage: {
         username: 'Invalid credentials, try something else.',
-        email: 'Invalid credentials, try something else.',
+        // email: 'Invalid credentials, try something else.',
       },
     })
   }
@@ -80,7 +78,6 @@ export default function errorHandler(err, req, res, next) {
       errMessage: 'Log in to create a memory.',
     })
   }
-
 
   // Code 500 means internal server error
   res.sendStatus(500)
