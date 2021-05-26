@@ -10,8 +10,9 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 })
+
 // * password encryption
-userSchema.pre('save', function encrypPassword(next) {
+userSchema.pre('save', function encryptPassword(next) {
   if (this.isModified('password')) {
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
   }
