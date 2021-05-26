@@ -10,7 +10,9 @@ const commentSchema = new mongoose.Schema( {
 
 const memorySchema = new mongoose.Schema({
   title: { type: String, required: true, unique: true },
-  location: { type: String, required: true },
+  // location: { type: String, required: true },
+  city: { type: String, required: true },
+  country: { type: String, required: true },
   date: { type: Date, required: true },
   imageUrl: { type: String, required: true },
   description: { type: String, required: true, unique: true },
