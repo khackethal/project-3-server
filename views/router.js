@@ -24,9 +24,6 @@ router.route('/memories/:memoryId')
   .delete(secureRoute, memoryController.remove)
 
 
-
-
-
 // * MEMORY ROUTES
 
 router.route('/memories/:memoryId/comment')
