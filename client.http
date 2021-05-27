@@ -1,4 +1,4 @@
-@memoryId = 60aac7ec556af4e3c526e641
+@memoryId = 60aab7a7d1dfcfcaed5a381e
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFhYjdhNmQxZGZjZmNhZWQ1YTM4MTkiLCJpYXQiOjE2MjE4NDQ0NzgsImV4cCI6MTYyMTg4NzY3OH0.3BaN4_c7rBiNaJL2YrMTAAezwcGZnJL_ipVwjWYceN4
 
 
@@ -8,7 +8,7 @@
 GET http://localhost:4000/api/memories
 
 ### Get single memory
-GET http://localhost:4000/api/memories/60aa833f32789a73f7720e05
+GET http://localhost:4000/api/memories/{{memoryId}}
 
 
 ### Create memory
@@ -17,11 +17,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFmY
 content-type: application/json
 
 {
-  "title": "test memory 211",
-  "location": "London2",
-  "date": "2020-05-022",
+  "title": "test memory 11",
+  "location": "London",
+  "date": "2020-05-02",
   "imageUrl": "https://blog.dys.com/wp-content/uploads/2021/03/One-version-of-the-truth-in-SOP-Our-collective-memory.jpg",
-  "description": "2so that's my test memory 11",
+  "description": "so that's my test memory 11",
   "tags": ["stuff", "more stuff"]
 }
 
@@ -55,7 +55,6 @@ content-type: application/json
 
 {
   "text": "TEST"
-
 }
 
 ### EDIT A COMMENT
@@ -85,11 +84,10 @@ POST http://localhost:4000/api/register
 Content-Type: application/json
 
 {
-  "username": "user4",
-  "email": "user2mail34",
-  "emailConfirmation": "user2mail34",
-  "password": "2",
-  "passwordConfirmation":"2"
+  "username": "yep55",
+  "email": "yep55@ok",
+  "password": "pass",
+  "passwordConfirmation": "pass"
 }
 
 
@@ -98,10 +96,17 @@ POST http://localhost:4000/api/login
 Content-Type: application/json
 
 {
-  "email": "user2mail34",
-  "password": "2"
+  "email": "yep55@ok",
+  "password": "pass"
 }
 
+### Check user
+POST http://localhost:4000/api/register/checkuser
+Content-Type: application/json
+
+{
+  "email": "yep@o"
+}
 
 
 
