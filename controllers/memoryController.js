@@ -69,9 +69,8 @@ const getData = async ( city, country, newMemory ) => {
   try {
     const result = await axios.get(`http://open.mapquestapi.com/geocoding/v1/address?key=	kigSTGPns5XZHY23SQS8A2MRiDfG3FwM&location=${finalCity},${finalCountry}`)
 
-
-    const latitude = ((result.data.results[0].locations[1].displayLatLng.lat))
-    const longitude = ((result.data.results[0].locations[1].displayLatLng.lng))
+    const latitude = ((result.data.results[0].locations[0].displayLatLng.lat))
+    const longitude = ((result.data.results[0].locations[0].displayLatLng.lng))
     console.log(latitude)
     console.log(longitude)
     newMemory.populate('longitude')
