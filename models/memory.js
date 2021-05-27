@@ -11,10 +11,10 @@ const commentSchema = new mongoose.Schema( {
 const memorySchema = new mongoose.Schema({
   title: { type: String, required: true, unique: true },
   location: { type: String, required: true },
-  date: { type: Date, required: true },
-  imageUrl: { type: String, required: true },
+  date: { type: Date },
+  image: { type: String },
   description: { type: String, required: true, unique: true },
-  tags: [{ type: String, required: true }],
+  tags: [{ type: String }],
   latitude: [{ type: Number }],
   longitude: [{ type: Number }],
   // coordinates: {
