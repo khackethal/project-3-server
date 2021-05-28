@@ -10,24 +10,28 @@ const commentSchema = new mongoose.Schema( {
 
 const memorySchema = new mongoose.Schema({
   title: { type: String, required: true, unique: true },
-  location: { type: String, required: true },
   date: { type: Date, required: true },
-  imageUrl: { type: String, required: true },
+  image: { type: String },
   description: { type: String, required: true, unique: true },
-  tags: [{ type: String, required: true }],
-  latitude: [{ type: Number }],
-  longitude: [{ type: Number }],
-  // coordinates: {
-  //   type: [Number],
-  //   required: true,
-  //   validate: [{
-  //     validator: (coordinates) => coordinates.length === 2,
-  //     message: (coordinates) => `Requirement array.length === 2. Current length is ${coordinates.length}`,
-  //   }],
-  // },
-
+  tags: [{ type: String }],
+  location: {
+    userInput: { type: String, required: true },
+    coordinates: {
+      type: [Number],
+      required: true,
+      validate: [{
+        validator: (coordinates) => coordinates.length === 2,
+        message: (coordinates) => `Requirement array.length === 2. Current length is ${coordinates.length}`,
+      }],
+    },
+    boundaryBox: {
+      type: [Number],
+      // validate: [{
+      //   validator: (boundaryBox) => boundaryBox.length === 4,
+      //   message: (boundaryBox) => `Requirement array.length === 4. Current length is ${boundaryBox.length}`,
+      // }],
+    } },
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-
   comments: [commentSchema],
 })
 
