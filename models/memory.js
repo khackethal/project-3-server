@@ -33,9 +33,7 @@ const memorySchema = new mongoose.Schema({
       //   message: (boundaryBox) => `Requirement array.length === 4. Current length is ${boundaryBox.length}`,
       // }],
     } },
-
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-
   comments: [commentSchema],
 })
 

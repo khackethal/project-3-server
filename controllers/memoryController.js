@@ -50,7 +50,7 @@ async function create(req, res, next) {
 
   } catch (err) {
 
-    //* error message if memory already exists
+    // * error message if memory already exists
     if (err.errors.title.properties.type === 'unique') {
       return res.status(400).json({ message: 'Memory already exists. Unable to create memory.' })
     }

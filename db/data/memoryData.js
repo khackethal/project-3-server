@@ -9,9 +9,8 @@ export default [
       userInput: 'First St SE, Washington, DC 20004, United States',
       coordinates: [-77.03662, 38.89843],
     },
-  
-    
   }, 
+
   {
     title: 'Big show, big embarrassment',
     date: new Date(1990),
@@ -22,9 +21,7 @@ export default [
       userInput: 'Alexandra Palace, UK',
       coordinates: [ -0.11799, 51.59963],
     },
-
   },
-
 
   { 
     title: 'Best Meal I have had in London',
@@ -36,10 +33,9 @@ export default [
       userInput: 'Brasserie Zédel, London, UK',
       coordinates: [ -0.13519, 51.51106],
     },
-
   },
-  {
 
+  {
     title: 'Beach Sunset Walk before my daughter headed to uni',
     date: new Date(2018,6,18),
     image: 'https://tr-images.condecdn.net/image/nl9XbX3dpq8/crop/1020/f/view-from-holkham-bay-norfolk-conde-nast-traveller-26july16-alamy.jpg',
@@ -49,11 +45,9 @@ export default [
       userInput: 'Holkham Beach, Norfolk, UK',
       coordinates: [ 0.8072891757136014, 52.97589019957431],
     },
-
-
   },
-  {
 
+  {
     title: 'I love you - Caught in the Rain ',
     date: new Date(2020,4,3),
     image: 'https://streetphotographymagazine.com/wp-content/uploads/2018/10/Gary-Normam-St-Pauls-Cathedral-pre-sunrise-on-a-very-wet-day-2018.jpg',
@@ -63,7 +57,5 @@ export default [
       userInput: 'Saint Pauls, London, UK',
       coordinates: [ -0.12372427791607929, 51.512503570337266],
     },
-
-
   }
 ]
