@@ -10,6 +10,7 @@ export default [
       coordinates: [-77.03662, 38.89843],
     },
   }, 
+
   {
     title: 'Big show, big embarrassment',
     date: new Date(1990),
@@ -21,6 +22,7 @@ export default [
       coordinates: [ -0.11799, 51.59963],
     },
   },
+
   { 
     title: 'Best Meal I have had in London',
     date: new Date(2019,8,12),
@@ -32,6 +34,7 @@ export default [
       coordinates: [ -0.13519, 51.51106],
     },
   },
+
   {
     title: 'Beach Sunset Walk before my daughter headed to uni',
     date: new Date(2018,6,18),
@@ -43,6 +46,7 @@ export default [
       coordinates: [ 0.8072891757136014, 52.97589019957431],
     },
   },
+
   {
     title: 'I love you - Caught in the Rain ',
     date: new Date(2020,4,3),

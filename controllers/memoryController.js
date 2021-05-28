@@ -1,5 +1,6 @@
 import { NotFound } from '../lib/errors.js'
 import Memory from '../models/memory.js'
+import axios from 'axios'
 
 // * Find all memeories in DB
 async function index(req, res, next) {
@@ -32,7 +33,7 @@ async function show(req, res, next) {
   }
 }
 
-// * Create a memory
+// * 1) Create a memory - PART 1 WITH USER INPUT
 async function create(req, res, next) {
   try {
 
@@ -40,12 +41,15 @@ async function create(req, res, next) {
 
     // * create memory
     const newMemory = await Memory.create(req.body)
+    newMemory.populate('user')
+    newMemory.save()
+
+    getData(newMemory.city, newMemory.country, newMemory)
 
     res.status(201).json(newMemory)
 
   } catch (err) {
 
-    console.log('err: ', err)
     // * error message if memory already exists
     if (err.errors.title.properties.type === 'unique') {
       return res.status(400).json({ message: 'Memory already exists. Unable to create memory.' })
@@ -54,6 +58,38 @@ async function create(req, res, next) {
     next(err)
   }
 }
+
+
+//* 2) Getting lat and lang based on city and country and saving the final memory to our data
+
+const getData = async ( city, country, newMemory ) => {
+  const finalCity = city.toLowerCase()
+  const finalCountry = country.toLowerCase()
+
+  try {
+    const result = await axios.get(`http://open.mapquestapi.com/geocoding/v1/address?key=	kigSTGPns5XZHY23SQS8A2MRiDfG3FwM&location=${finalCity},${finalCountry}`)
+
+    const latitude = ((result.data.results[0].locations[0].displayLatLng.lat))
+    const longitude = ((result.data.results[0].locations[0].displayLatLng.lng))
+    console.log(latitude)
+    console.log(longitude)
+    newMemory.populate('longitude')
+    newMemory.populate('latitude')
+    newMemory.longitude = longitude
+    newMemory.latitude = latitude
+    newMemory.save()
+    console.log(newMemory)
+    
+
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+
+
+
+
 
 // * Edit a memory
 async function edit(req, res, next) {
