@@ -8,30 +8,37 @@ const commentSchema = new mongoose.Schema( {
 } , { timestamp: true } 
 )
 
+//* memory schema 
 const memorySchema = new mongoose.Schema({
   title: { type: String, required: true, unique: true },
-  // location: { type: String, required: true },
-  city: { type: String },
-  country: { type: String },
-  date: { type: Date },
+  date: { type: Date, required: true },
   image: { type: String },
-  description: { type: String,  unique: true },
+  description: { type: String, required: true, unique: true },
   tags: [{ type: String }],
-  latitude: [{ type: Number }],
-  longitude: [{ type: Number }],
-  // coordinates: {
-  //   type: [Number],
-  //   required: true,
-  //   validate: [{
-  //     validator: (coordinates) => coordinates.length === 2,
-  //     message: (coordinates) => `Requirement array.length === 2. Current length is ${coordinates.length}`,
-  //   }],
-  // },
+  location: {
+    userInput: { type: String, required: true },
+    coordinates: {
+      type: [Number],
+      required: true,
+      validate: [{
+        validator: (coordinates) => coordinates.length === 2,
+        message: (coordinates) => `Requirement array.length === 2. Current length is ${coordinates.length}`,
+      }],
+    },
+    boundaryBox: {
+      type: [Number ],
+      // required: false,
+      // validate: [{
+      //   validator: (boundaryBox) => boundaryBox.length === 4,
+      //   message: (boundaryBox) => `Requirement array.length === 4. Current length is ${boundaryBox.length}`,
+      // }],
+    } },
 
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 
   comments: [commentSchema],
 })
+
 
 memorySchema.plugin(uniqueValidator)
 

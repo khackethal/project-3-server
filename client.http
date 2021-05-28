@@ -1,6 +1,5 @@
-@memoryId = 60aab7a7d1dfcfcaed5a381e
+@memoryId = 60aac7ec556af4e3c526e641
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFhYjdhNmQxZGZjZmNhZWQ1YTM4MTkiLCJpYXQiOjE2MjE4NDQ0NzgsImV4cCI6MTYyMTg4NzY3OH0.3BaN4_c7rBiNaJL2YrMTAAezwcGZnJL_ipVwjWYceN4
-
 
 ### MEMORY ROUTES
 
@@ -8,26 +7,27 @@
 GET http://localhost:4000/api/memories
 
 ### Get single memory
-GET http://localhost:4000/api/memories/{{memoryId}}
+GET http://localhost:4000/api/memories/60aa833f32789a73f7720e05
 
 
 ### Create memory
 POST http://localhost:4000/api/memories
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFmYjZiZDMyOTFhODIzZWMwYTJhZGUiLCJpYXQiOjE2MjIxMjgzMjEsImV4cCI6MTYyMjE3MTUyMX0.ray2Y-Eado2trbu_22ck_GjdgVrcMPPfjqg5Kq_wKw4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFjYzY3ZDkxZTE4OGMyMzcyZTEzN2EiLCJpYXQiOjE2MjIxMDcwNTUsImV4cCI6MTYyMjE1MDI1NX0.uVNF-NgZvC3GDmyy_avvZIrYu6C6e0Fk-1b0RMcJx-A
 content-type: application/json
 
 {
-  "title": "test memory 11",
-  "location": "London",
-  "date": "2020-05-02",
+  "title": "test111 memory 21111111111111111111111111",
+  "city": "LosAngeles",
+  "country":"USa",
+  "date": "2020-05-022",
   "imageUrl": "https://blog.dys.com/wp-content/uploads/2021/03/One-version-of-the-truth-in-SOP-Our-collective-memory.jpg",
-  "description": "so that's my test memory 11",
+  "description": "2so that's my test memory 3331111111111111111111111111",
   "tags": ["stuff", "more stuff"]
 }
 
 ### Edit memory
 PUT http://localhost:4000/api/memories/60ab8482526419a4b01bc478
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFmYjZiZDMyOTFhODIzZWMwYTJhZGUiLCJpYXQiOjE2MjIxMjgzMjEsImV4cCI6MTYyMjE3MTUyMX0.ray2Y-Eado2trbu_22ck_GjdgVrcMPPfjqg5Kq_wKw4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
 {
@@ -41,8 +41,8 @@ content-type: application/json
 
 
 ### Delete memory
-DELETE http://localhost:4000/api/memories/60ab82fbde6b92a457e29800
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFmYjZiZDMyOTFhODIzZWMwYTJhZGUiLCJpYXQiOjE2MjIxMjgzMjEsImV4cCI6MTYyMjE3MTUyMX0.ray2Y-Eado2trbu_22ck_GjdgVrcMPPfjqg5Kq_wKw4
+DELETE http://localhost:4000/api/memories/60ab8482526419a4b01bc478
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
 
@@ -50,17 +50,18 @@ content-type: application/json
 
 ## POST A COMMENT ON A MEMORY
 POST http://localhost:4000/api/memories/60aa833f32789a73f7720e05/comment
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFmYjZiZDMyOTFhODIzZWMwYTJhZGUiLCJpYXQiOjE2MjIxMjgzMjEsImV4cCI6MTYyMjE3MTUyMX0.ray2Y-Eado2trbu_22ck_GjdgVrcMPPfjqg5Kq_wKw4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
 {
   "text": "TEST"
+
 }
 
 ### EDIT A COMMENT
 
 PUT http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment/60ab8a2eccf064a619c7d264
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFmYjZiZDMyOTFhODIzZWMwYTJhZGUiLCJpYXQiOjE2MjIxMjgzMjEsImV4cCI6MTYyMjE3MTUyMX0.ray2Y-Eado2trbu_22ck_GjdgVrcMPPfjqg5Kq_wKw4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
 {
@@ -72,7 +73,7 @@ content-type: application/json
 ### DELETE A COMMENT
 
 DELETE http://localhost:4000/api/memories/60ab8482526419a4b01bc478/comment/60ab8b24426f2da659fc58a2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFmYjZiZDMyOTFhODIzZWMwYTJhZGUiLCJpYXQiOjE2MjIxMjgzMjEsImV4cCI6MTYyMjE3MTUyMX0.ray2Y-Eado2trbu_22ck_GjdgVrcMPPfjqg5Kq_wKw4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGFiODJhM2RlNmI5MmE0NTdlMjk3ZmYiLCJpYXQiOjE2MjE4NTI4NjEsImV4cCI6MTYyMTg5NjA2MX0.4Lr6Q67jjKxB-pwleH6k2GGW5F-4amUf-D4_xvqa3BQ
 content-type: application/json
 
 
@@ -84,10 +85,11 @@ POST http://localhost:4000/api/register
 Content-Type: application/json
 
 {
-  "username": "yep55",
-  "email": "yep55@ok",
-  "password": "pass",
-  "passwordConfirmation": "pass"
+  "username": "user4",
+  "email": "user2mail34",
+  "emailConfirmation": "user2mail34",
+  "password": "2",
+  "passwordConfirmation":"2"
 }
 
 
@@ -96,17 +98,18 @@ POST http://localhost:4000/api/login
 Content-Type: application/json
 
 {
-  "email": "yep55@ok",
-  "password": "pass"
+  "email": "user2mail34",
+  "password": "2"
 }
 
-### Check user
-POST http://localhost:4000/api/register/checkuser
-Content-Type: application/json
+### TEST lat/ long
 
-{
-  "email": "yep@o"
-}
+GET http://open.mapquestapi.com/geocoding/v1/address?key=kigSTGPns5XZHY23SQS8A2MRiDfG3FwM&location=nice,france
+
+### geocoding
+
+GET https://api.mapbox.com/geocoding/v5/mapbox.places/2%20Lincoln%20Memorial%20Cir%20NW.json?access_token=pk.eyJ1Ijoia2F0aGFja2V0aGFsIiwiYSI6ImNrcDJyeG15aDA4bm0ybm1rbnA4OGg0cDUifQ.13jXKE1MWMt27fdEfA1K9g
+
 
 
 
