@@ -25,8 +25,9 @@ router.route('/memories/:memoryId/comment')
   .post(secureRoute, commentController.create)
 
 router.route('/memories/:memoryId/comment/:commentId')
-  .put(secureRoute, commentController.update)
   .delete(secureRoute, commentController.remove)
+  // ! Comment updates won't be implemented on front end
+  // .put(secureRoute, commentController.update)
 
 
 //* USER ROUTES

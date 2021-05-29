@@ -8,6 +8,7 @@ export default [
     location: {
       userInput: 'First St SE, Washington, DC 20004, United States',
       coordinates: [-77.03662, 38.89843],
+      placeType: 'address',
     },
   }, 
 
@@ -20,6 +21,7 @@ export default [
     location: {
       userInput: 'Alexandra Palace, UK',
       coordinates: [ -0.11799, 51.59963],
+      placeType: 'poi',
     },
   },
 
@@ -32,6 +34,7 @@ export default [
     location: {
       userInput: 'Brasserie Zédel, London, UK',
       coordinates: [ -0.13519, 51.51106],
+      placeType: 'poi',
     },
   },
 
@@ -44,6 +47,7 @@ export default [
     location: {
       userInput: 'Holkham Beach, Norfolk, UK',
       coordinates: [ 0.8072891757136014, 52.97589019957431],
+      placeType: 'poi',
     },
   },
 
@@ -56,6 +60,7 @@ export default [
     location: {
       userInput: 'Saint Pauls, London, UK',
       coordinates: [ -0.12372427791607929, 51.512503570337266],
+      placeType: 'poi',
     },
   }
 ]
