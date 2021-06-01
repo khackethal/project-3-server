@@ -31,7 +31,6 @@ const memorySchema = new mongoose.Schema({
     boundaryBox: { type: [Number] },
     placeType: { type: String },
   },
-  // user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   user: {
     userId: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
     username: { type: String, ref: 'User', required: true },
