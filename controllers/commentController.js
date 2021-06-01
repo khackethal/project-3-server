@@ -21,6 +21,8 @@ async function create(req, res, next) {
     memory.comments.push(req.body)
     memory.save()
     
+    console.log('memory: ', memory)
+
     res.status(200).json(memory)
 
   } catch (err) {
