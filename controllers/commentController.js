@@ -8,9 +8,11 @@ async function create(req, res, next) {
     
     req.body.user = req.currentUser
 
+    // const memory = await Memory.findById(req.params.memoryId)
+    //   .populate('user')
+    //   .populate('comments.user')
+
     const memory = await Memory.findById(req.params.memoryId)
-      .populate('user')
-      .populate('comments.user')
 
     // * given that comments are only available on memory pages,
     // * this shouldn't be needed, but keeping in case of unexpected errors/for testing
@@ -20,8 +22,6 @@ async function create(req, res, next) {
 
     memory.comments.push(req.body)
     memory.save()
-    
-    console.log('memory: ', memory)
 
     res.status(200).json(memory)
 
@@ -59,6 +59,8 @@ async function create(req, res, next) {
 
 async function remove(req, res, next) {
   const { memoryId, commentId } = req.params
+  console.log('memoryId: ', memoryId)
+  console.log('commentId: ', commentId)
   try {
 
     const memory = await Memory.findById(memoryId)
@@ -69,7 +71,10 @@ async function remove(req, res, next) {
 
     const comment = memory.comments.id(commentId)
 
-    if (!req.currentUser._id.equals(comment.user)) {
+    const currentUserId = req.currentUser.userId
+    const commentUserId = comment.user.userId
+
+    if (!commentUserId.equals(currentUserId)) {
       throw new NotAuthorized
     }
 
