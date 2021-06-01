@@ -36,11 +36,12 @@ async function show(req, res, next) {
 async function create(req, res, next) {
   try {
 
+
     req.body.user = req.currentUser
+    console.log('req.body: ', req.body)
 
     // * create memory
     const newMemory = await Memory.create(req.body)
-
     newMemory.populate('user')
     newMemory.save()
 
@@ -81,6 +82,7 @@ async function edit(req, res, next) {
     
   } catch (err) {
 
+    console.log('err: ', err)
     // * error message if memory already exists
     if (err.code === 11000) {
       return res.status(400).json({ message: 'Memory already exists. Unable to create memory.' })
@@ -101,12 +103,12 @@ async function remove(req, res, next) {
       throw new NotFound()
     }
 
-    const memoryUserId = memory.user
-    const currentUserId = req.currentUser._id
+    // const memoryUserId = memory.user
+    // const currentUserId = req.currentUser._id
 
-    if (!currentUserId.equals(memoryUserId)) {
-      return res.status(401).json({ message: 'Unauthorized' })
-    }
+    // if (!currentUserId.equals(memoryUserId)) {
+    //   return res.status(401).json({ message: 'Unauthorized' })
+    // }
 
     await memory.deleteOne()
 
