@@ -25,17 +25,10 @@ const memorySchema = new mongoose.Schema({
         message: (coordinates) => `Requirement array.length === 2. Current length is ${coordinates.length}`,
       }],
     },
-    boundaryBox: {
-      type: [Number ],
-      // required: false,
-      // validate: [{
-      //   validator: (boundaryBox) => boundaryBox.length === 4,
-      //   message: (boundaryBox) => `Requirement array.length === 4. Current length is ${boundaryBox.length}`,
-      // }],
-    } },
-
+    boundaryBox: { type: [Number] },
+    placeType: { type: String },
+  },
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-
   comments: [commentSchema],
 })
 

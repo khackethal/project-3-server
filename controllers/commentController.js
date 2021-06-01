@@ -1,71 +1,80 @@
 import Memory from '../models/memory.js'
-import { NotFound } from '../lib/errors.js'
+import { NotAuthorized, NotFound } from '../lib/errors.js'
 
 
 async function create(req, res, next) {
-  const { memoryId } = req.params
-  req.body.user = req.currentUser
+  
   try {
-    const memories = await Memory.findById(memoryId)
+    
+    req.body.user = req.currentUser
+
+    const memory = await Memory.findById(req.params.memoryId)
       .populate('user')
       .populate('comments.user')
-    if (!memories) {
-      //* the not found already has a message in error handler that will overwrite the below
-      throw new NotFound('No memories found.')
+
+    // * given that comments are only available on memory pages,
+    // * this shouldn't be needed, but keeping in case of unexpected errors/for testing
+    if (!memory) {
+      throw new NotFound()
     }
 
-    memories.comments.push(req.body)
-    memories.save()
-    res.status(200).json(memories)
-
+    memory.comments.push(req.body)
+    memory.save()
+    
+    res.status(200).json(memory)
 
   } catch (err) {
     next(err)
   }
 }
 
+// ! Comment updates won't be implemented on front end
+// async function update(req, res, next) {
+//   const { memoryId, commentId } = req.params
+//   try {
 
+//     const memory = await Memory.findById(memoryId)
 
-async function update(req, res, next) {
-  const { memoryId, commentId } = req.params
-  try {
+//     if (!memory) {
+//       throw new NotFound
+//     }
 
-    const memories = await Memory.findById(memoryId)
+//     const comment = memory.comments.id(commentId)
 
-    if (!memories) {
-      throw new NotFound
-    }
+//     if (!req.currentUser._id.equals(comment.user)) {
+//       return res.status(401).send({ errMessage: 'Unauthorized! You cannot update other user\'s comments' })
+//     }
 
-    const comment = memories.comments.id(commentId)
+//     comment.set(req.body)
+//     const savedMemory = await memory.save()
+//     res.status(200).json(savedMemory)
 
-    if (!req.currentUser._id.equals(comment.user)) {
-      return res.status(401).send({ message: 'Unauthorized' })
-    }
-    comment.set(req.body)
-    const savedMemory = await memories.save()
-    res.status(200).json(savedMemory)
-
-    res.send(savedMemory)
-  } catch (e) {
-    next(e)
-  }
-}
+//   } catch (e) {
+//     next(e)
+//   }
+// }
+// ! ----------
 
 async function remove(req, res, next) {
   const { memoryId, commentId } = req.params
   try {
-    const memories = await Memory.findById(memoryId)
-    if (!memories) {
+
+    const memory = await Memory.findById(memoryId)
+
+    if (!memory) {
       throw new NotFound
     }
-    const comment = memories.comments.id(commentId)
+
+    const comment = memory.comments.id(commentId)
 
     if (!req.currentUser._id.equals(comment.user)) {
-      return res.status(401).send({ message: 'Unauthorized' })
+      throw new NotAuthorized
     }
+
     comment.remove()
-    const savedMemory = await memories.save()
-    res.status(200).json(savedMemory)
+    await memory.save()
+    
+    res.sendStatus(200)
 
   } catch (e) {
     next(e)
@@ -75,6 +84,6 @@ async function remove(req, res, next) {
 
 export default {
   create,
-  update,
   remove,
+  // update,
 }

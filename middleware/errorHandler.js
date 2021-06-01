@@ -12,11 +12,19 @@ export default function errorHandler(err, req, res, next) {
     })
   }
 
+  if (err.name === 'NotAuthorized') {
+    console.log('in NotAuthorized')
+    return res.status(401).json( {
+      errName: err.name,
+      errMessage: 'Not authorized!',
+    })
+  }
+
   // * when a memory/id cannot be found in the DB
   if (err.name === 'NotFound') {
     return res.status(400).json({
       errName: err.name,
-      errMessage: 'Not found.',
+      errMessage: 'Element not found.',
     })
   }
 
@@ -71,11 +79,11 @@ export default function errorHandler(err, req, res, next) {
     })
   }
 
-  // * when posting a memory but not logged in
+  // * when posting a memory/comment but not logged in
   if (err.name === 'NotLogged') {
     return res.status(400).json({
       errName: err.name,
-      errMessage: 'Log in to create a memory.',
+      errMessage: 'Log in to proceed.',
     })
   }
 
