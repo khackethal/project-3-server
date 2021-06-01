@@ -3,9 +3,10 @@ import { NotFound } from '../lib/errors.js'
 
 
 async function create(req, res, next) {
+  const { memoryId } = req.params
   req.body.user = req.currentUser
   try {
-    const memories = await Memory.findById(req.params.id)
+    const memories = await Memory.findById(memoryId)
       .populate('user')
       .populate('comments.user')
     if (!memories) {
@@ -22,6 +23,8 @@ async function create(req, res, next) {
     next(err)
   }
 }
+
+
 
 async function update(req, res, next) {
   const { memoryId, commentId } = req.params
