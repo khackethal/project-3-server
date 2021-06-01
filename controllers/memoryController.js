@@ -65,12 +65,12 @@ async function edit(req, res, next) {
     const id = req.params.memoryId
     const memory = await Memory.findById(id)
 
-    const currentUserId = req.currentUser._id
-    const memoryUserId = memory.user
+    // const currentUserId = req.currentUser._id
+    // const memoryUserId = memory.user
 
-    if (!currentUserId.equals(memoryUserId)) {
-      return res.status(401).json({ message: 'Unauthorized' })
-    }
+    // if (!currentUserId.equals(memoryUserId)) {
+    //   return res.status(401).json({ message: 'Unauthorized' })
+    // }
 
     if (!memory) {
       throw new NotFound()
