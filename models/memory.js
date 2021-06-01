@@ -4,7 +4,10 @@ import uniqueValidator from 'mongoose-unique-validator'
 // * Embedded comment schema
 const commentSchema = new mongoose.Schema( {
   text: { type: String, required: true },
-  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  user: {
+    userId: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+    username: { type: String, ref: 'User', required: true },
+  },
 } , { timestamp: true } 
 )
 
@@ -28,7 +31,10 @@ const memorySchema = new mongoose.Schema({
     boundaryBox: { type: [Number] },
     placeType: { type: String },
   },
-  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  user: {
+    userId: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+    username: { type: String, ref: 'User', required: true },
+  },
   comments: [commentSchema],
 })
 

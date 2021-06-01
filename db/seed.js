@@ -24,10 +24,16 @@ async function seedDatabase() {
 
     // * Assign a user's user ID to each memory - same user for ech intial seed or we need to write more logic
     const memoryDataWithUsers = memoryData.map(memory =>  {
-      return { ...memory, user: user[1]._id }
+      return { 
+        ...memory,
+        user: {
+          userId: user[1]._id,
+          username: user[1].username,
+        },
+      }
     })
 
-    //seed database with memories
+    // * seed database with memories
     const memories = await Memory.create(memoryDataWithUsers)
     console.log(`✨ ${memories.length} memories created!`)
 

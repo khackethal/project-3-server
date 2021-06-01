@@ -19,7 +19,7 @@ router.route('/memories')
 router.route('/memories/:memoryId')
   .get(memoryController.show)
   .put(secureRoute, memoryController.edit)
-  .delete(secureRoute, memoryController.remove)
+
 
 router.route('/memories/:memoryId/comment')
   .post(secureRoute, commentController.create)
