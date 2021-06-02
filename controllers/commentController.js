@@ -8,10 +8,6 @@ async function create(req, res, next) {
     
     req.body.user = req.currentUser
 
-    // const memory = await Memory.findById(req.params.memoryId)
-    //   .populate('user')
-    //   .populate('comments.user')
-
     const memory = await Memory.findById(req.params.memoryId)
 
     // * given that comments are only available on memory pages,
