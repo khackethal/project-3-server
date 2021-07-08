@@ -8,7 +8,7 @@ import userController from '../controllers/userController.js'
 //*secure route
 import secureRoute from '../middleware/secureRoute.js'
 
-const router = Router()
+const router = Router() 
 
 // * MEMORY ROUTES
 
