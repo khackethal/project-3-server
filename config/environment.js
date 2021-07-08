@@ -1,8 +1,6 @@
-// * database ULR
-export const dbURL = 'mongodb://localhost/memorymapdb'
+import dotenv from 'dotenv'
+dotenv.config()
 
-export const port = 4000
-
-// * A Secret string for JWT - random long words strung together are hardest to guess for computers
-// ! Let's add a random word
-export const secret = 'lightforesthousecatblueoil'
+export const dbURL = process.env.DB_URI || 'mongodb://localhost/memorymapdb'
+export const port = process.env.PORT || 4000
+export const secret = process.env.SECRET || 'lightforesthousecatblueoil'

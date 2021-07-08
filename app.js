@@ -1,24 +1,21 @@
-// * package imports
 import express from 'express'
+import cors from 'cors'
 
-// * req router import
-import router from './views/router.js'
-
-// * custom middleware imports
+import connectToDatabase from './db/connectToDb.js'
 import logger from './middleware/logger.js'
+import router from './views/router.js'
 import errorHandler from './middleware/errorHandler.js'
 
 const app = express()
 
 app.use(express.json())
 
-// * adding logging middleware
+app.use(cors())
+
 app.use(logger)
 
-// * special piece of middleware
 app.use('/api', router)
 
-// * error handler last
 app.use(errorHandler)
 
 export default app

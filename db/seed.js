@@ -13,11 +13,6 @@ async function seedDatabase() {
     await connectToDb()
     console.log('⭐ Successfully connected to mongo') 
 
-    // * clear database every time we seed
-    //! We need to remove this after testing !!
-    await mongoose.connection.db.dropDatabase()
-    console.log('💫  Removed all memories, comments and users')
-
     // * seed database with users
     const user = await User.create(userData)
     console.log(`✨ ${user.length} users added! ${user}`)
