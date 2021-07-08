@@ -14,6 +14,8 @@ app.use(cors())
 
 app.use(logger)
 
+app.use(connectToDatabase)
+
 app.use('/api', router)
 
 app.use(errorHandler)
