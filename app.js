@@ -1,5 +1,5 @@
 import express from 'express'
-import cors from 'cors'
+import cors from 'cors' //* <-- This is new
 
 import connectToDatabase from './db/connectToDb.js'
 import logger from './middleware/logger.js'
@@ -10,11 +10,9 @@ const app = express()
 
 app.use(express.json())
 
-app.use(cors()) 
+app.use(cors())
 
 app.use(logger)
-
-app.use(connectToDatabase)
 
 app.use('/api', router)
 
