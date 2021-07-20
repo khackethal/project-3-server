@@ -111,7 +111,7 @@ Below are the models we created for users and memories. Due to our extensive pla
 
 #### User Models
 
-```
+```js
 import mongoose from 'mongoose'
 
 import uniqueValidator from 'mongoose-unique-validator'
@@ -160,7 +160,7 @@ export default mongoose.model('User', userSchema)
 
 #### Memory Models
 
-```
+```js
 import mongoose from 'mongoose'
 import uniqueValidator from 'mongoose-unique-validator'
 
@@ -217,7 +217,7 @@ I wrote the All Memories pages (both index and map), New Memory page, edit Memor
 The most noteworthy page is the Single Memory page, as it unites the most logic, with deleting the memory and adding and deleting comments all implemented on the page.
 
  
-```
+```js
 import axios from 'axios'
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
