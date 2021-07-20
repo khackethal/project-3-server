@@ -6,7 +6,7 @@
 
 A platform to connect with places through other people's memories. Share and upload a memory and mark it on a map, and view other people's memories of a specific place. 
 
-[Try it out.](insert link to deployed app)
+[Try it out.](https://memorymap.netlify.app/)
 
 For the best user experience we would recommend to register and to create a new memory, to fully see all features that are available to a a registered, logged in owner of a memory.
 
