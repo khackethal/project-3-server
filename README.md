@@ -211,7 +211,10 @@ export default mongoose.model('Memory', memorySchema)
 
 Below are the original wireframes we planned out as a group.
 
-![ Original Wireframes ](.readme_files/mmwireframes.png)
+<p>
+<img src=".readme_files/mmwireframes.png"alt="Original Wireframes"/>
+</p>
+
 
 I wrote the All Memories pages (both index and map), New Memory page, edit Memory page and Single Memory page, while the other group members focused on user authentication and secure route, implementing image uploads and styling the app.
 The most noteworthy page is the Single Memory page, as it unites the most logic, with deleting the memory and adding and deleting comments all implemented on the page.
@@ -550,11 +553,15 @@ export default SingleMemory
 
 ### Homepage
 
-![ Home Page](.readme_files/mm_homepage.png)
+<p>
+<img src=".readme_files/mm_homepage.png"alt="Home Page"/>
+</p>
 
 ### Memory Index
 
-![ User Homepage](.readme_files/mm_index.png)
+<p>
+<img src=".readme_files/mm_index.png"alt="Memory Index"/>
+</p>
 
 ## Wins, Challenges & Bugs
 
